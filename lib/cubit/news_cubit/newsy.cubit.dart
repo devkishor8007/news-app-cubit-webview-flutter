@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:read_me_flutter_app/cubit/news_cubit/newsy.state.dart';
 import 'package:read_me_flutter_app/data/remote/helper.dio.dart';
 import 'package:read_me_flutter_app/modules/business/business_screen.dart';
@@ -50,7 +51,7 @@ class CubitNews extends Cubit<NewsState> {
       query: {
         'country': 'us',
         'category': 'business',
-        'apiKey': '4ef1caab3db24aab98873f6eae2d7c85'
+        'apiKey': dotenv.env['API_KEY']
       },
     ).then((value) {
       business = value.data['articles'];
@@ -69,7 +70,7 @@ class CubitNews extends Cubit<NewsState> {
       query: {
         'country': 'us',
         'category': 'sports',
-        'apiKey': '4ef1caab3db24aab98873f6eae2d7c85'
+        'apiKey': dotenv.env['API_KEY']
       },
     ).then((value) {
       sport = value.data['articles'];
@@ -88,7 +89,7 @@ class CubitNews extends Cubit<NewsState> {
       query: {
         'country': 'us',
         'category': 'health',
-        'apiKey': '4ef1caab3db24aab98873f6eae2d7c85'
+        'apiKey': dotenv.env['API_KEY']
       },
     ).then((value) {
       health = value.data['articles'];

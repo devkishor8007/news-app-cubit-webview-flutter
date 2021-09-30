@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:read_me_flutter_app/bottom_view.dart';
 import 'package:read_me_flutter_app/cubit/news_cubit/newsy.cubit.dart';
 import 'package:read_me_flutter_app/cubit/news_cubit/newsy.state.dart';
 import 'package:read_me_flutter_app/data/remote/helper.dio.dart';
 
-void main() {
+Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   DioHelper.init();
+  await dotenv.load(fileName: ".env");
   runApp(const MyApp());
 }
 
